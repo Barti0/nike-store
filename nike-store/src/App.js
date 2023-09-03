@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Cart from "./components/Cart";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Sales from "./components/Sales";
+import { heroapi, topratesales, popularsales } from "./data/data.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Cart />
+      <main>
+        <Hero heroapi={heroapi} />
+        <Sales ifExists endpoint={popularsales} />
+        <Sales endpoint={topratesales} />
+      </main>
+      <Footer />
+    </>
   );
 }
 
